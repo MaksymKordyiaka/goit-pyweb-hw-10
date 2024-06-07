@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "goit-pyweb-hw-10"
+version = "0.1.0"
+description = ""
+authors = ["Maksym <maxkord2003@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.6"
+pymongo = "^4.7.3"
+certifi = "^2024.6.2"
+psycopg2 = "^2.9.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
