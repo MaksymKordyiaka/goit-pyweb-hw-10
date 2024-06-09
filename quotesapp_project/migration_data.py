@@ -44,7 +44,7 @@ def migrate_data():
         description = document.get("description")
 
 
-        author_instance = Author.objects.create(
+        Author.objects.create(
             fullname=fullname,
             born_date=born_date,
             born_location=born_location,
@@ -56,14 +56,14 @@ def migrate_data():
         author_name = document.get("author")
         quote_text = document.get("quote")
 
+        author_instance = Author.objects.get(fullname=author_name)
+
         Quote.objects.create(
             quote=quote_text,
-            author_id=author_instance.id,
-            author=author_name,
+            author=author_instance,
             tags=tags
         )
 
-        print(Quote.author_id)
     client.close()
 
 if __name__ == "__main__":
