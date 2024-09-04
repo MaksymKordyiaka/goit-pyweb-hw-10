@@ -3,6 +3,7 @@ import django
 from pymongo import MongoClient
 from django.conf import settings
 from django.conf import global_settings
+from quotesapp.models import Author, Quote
 
 
 settings.configure(
@@ -25,8 +26,6 @@ settings.configure(
 
 django.setup()
 
-from quotesapp.models import Author, Quote
-
 
 def migrate_data():
     client = MongoClient(
@@ -42,7 +41,6 @@ def migrate_data():
         born_date = document.get("born_date")
         born_location = document.get("born_location")
         description = document.get("description")
-
 
         Author.objects.create(
             fullname=fullname,
@@ -65,6 +63,7 @@ def migrate_data():
         )
 
     client.close()
+
 
 if __name__ == "__main__":
     migrate_data()
